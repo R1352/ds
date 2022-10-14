@@ -1,0 +1,175 @@
+O 01
+
+void print(LinkedListNode* head) 
+{
+    if(head!=NULL)
+    {
+        printf("%d\n",head->val);
+        print(head->next);
+    }
+}
+
+o 02
+
+void ReversePrint(LinkedListNode* head)
+{
+if(head!=NULL)
+{
+    ReversePrint(head->next);
+    printf("%d ",head->val);
+}
+}
+
+0 03
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+struct SingleLinkedList
+{
+    int data;
+    struct SingleLinkedList *next;
+}*head=NULL;
+typedef struct SingleLinkedList sll;
+sll* iaB(sll* head,int value)
+{
+    sll* newnode =(sll*)malloc(sizeof(sll*));
+    newnode->data =value;
+    newnode->next=head;
+    head=newnode;
+    return head;
+   
+}
+void display(sll* head)
+{
+    while(head->next!=NULL)
+    {
+        printf("%d->",head->data);
+        head=head->next;
+    }
+    printf("%d",head->data);
+}
+int main() {
+
+    int n,k;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&k);
+        head=iaB(head,k);
+    }
+    display(head);
+    return 0;
+}
+
+O 04
+
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int value)
+{
+SinglyLinkedListNode* newnode=(SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newnode->data=value;
+    newnode->next=NULL;
+    if(head==NULL)
+    {
+        head=newnode;
+        return head;
+    }
+    else
+    {
+        SinglyLinkedListNode *ptr=head;
+        while(ptr->next!=NULL)
+        {
+            ptr=ptr->next;
+        }
+        ptr->next=newnode;
+    }
+    return head;
+}O 01
+
+void print(LinkedListNode* head) 
+{
+    if(head!=NULL)
+    {
+        printf("%d\n",head->val);
+        print(head->next);
+    }
+}
+
+o 02
+
+void ReversePrint(LinkedListNode* head)
+{
+if(head!=NULL)
+{
+    ReversePrint(head->next);
+    printf("%d ",head->val);
+}
+}
+
+0 03
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+struct SingleLinkedList
+{
+    int data;
+    struct SingleLinkedList *next;
+}*head=NULL;
+typedef struct SingleLinkedList sll;
+sll* iaB(sll* head,int value)
+{
+    sll* newnode =(sll*)malloc(sizeof(sll*));
+    newnode->data =value;
+    newnode->next=head;
+    head=newnode;
+    return head;
+   
+}
+void display(sll* head)
+{
+    while(head->next!=NULL)
+    {
+        printf("%d->",head->data);
+        head=head->next;
+    }
+    printf("%d",head->data);
+}
+int main() {
+
+    int n,k;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&k);
+        head=iaB(head,k);
+    }
+    display(head);
+    return 0;
+}
+
+O 04
+
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int value)
+{
+SinglyLinkedListNode* newnode=(SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newnode->data=value;
+    newnode->next=NULL;
+    if(head==NULL)
+    {
+        head=newnode;
+        return head;
+    }
+    else
+    {
+        SinglyLinkedListNode *ptr=head;
+        while(ptr->next!=NULL)
+        {
+            ptr=ptr->next;
+        }
+        ptr->next=newnode;
+    }
+    return head;
+}
