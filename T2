@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+struct SingleLinkedList
+{
+    int data;
+    struct SingleLinkedList *next;
+}*head=NULL;
+typedef struct SingleLinkedList sll;
+
+sll* InsertAtEnd(sll* head,int value)
+{
+    sll* newnode=(sll*)malloc(sizeof(sll));
+    newnode->data=value;
+    newnode->next=NULL;
+    if(head==NULL)
+    {
+        head=newnode;
+        return head;
+    }
+    else
+    {
+        sll *ptr=head;
+        while(ptr->next!=NULL)
+        {
+            ptr=ptr->next;
+        }
+        ptr->next=newnode;
+    }
+    return head;
+}
+void display(sll *head)
+{
+    if(head!=NULL)
+    {
+        printf("%d ",head->data);
+        display(head->next);
+    }
+}
+sll* ReqMod(sll* head,int k)
+{
+    sll* ptr=head;
+    sll* ptr2=NULL;
+    while(ptr!=NULL)
+    {
+        if(ptr->data < k)
+            ptr2=InsertAtEnd(ptr2,ptr->data);
+         ptr=ptr->next;
+    }
+    ptr2=InsertAtEnd(ptr2,k);
+    sll* q=head;
+    while(q!=NULL)
+    {
+        if(q->data > k)
+            ptr2=InsertAtEnd(ptr2,q->data);
+         q=q->next;
+    }
+    return ptr2;
+}
+
+int main() {
+
+   int n,a,k;
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+    {
+        scanf("%d",&a);
+        head=InsertAtEnd(head,a);
+    }   
+    printf("reading done\n");
+    printf("enter the k Vlaue\n");
+    scanf("%d",&k);
+    head=ReqMod(head,k);
+    display(head);
+    return 0;
+}
